@@ -37,6 +37,10 @@ class AnalyticsDashboard(Observer):
     def update(self, student_name, grade):
         print(f"[Analytics Dashboard] Logging: {student_name} got {grade}.")
 
+class BSCE22001(Observer):
+    def update(self, student_name, grade):
+        print(f"[BSCE22001] is saying that {student_name} got {grade}.")
+
 # Usage
 if __name__ == "__main__":
     gradebook = GradeBook()
@@ -44,10 +48,13 @@ if __name__ == "__main__":
     parent = ParentPortal()
     student = StudentPortal()
     dashboard = AnalyticsDashboard()
+    bsce22001 = BSCE22001()
 
     gradebook.add_observer(parent)
     gradebook.add_observer(student)
     gradebook.add_observer(dashboard)
+    gradebook.add_observer(bsce22001)
 
     gradebook.enter_grade("Alice", 92)
     gradebook.enter_grade("Bob", 85)
+    gradebook.enter_grade("Muhammad Miqdad Ahmad", 100)
