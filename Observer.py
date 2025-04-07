@@ -58,3 +58,4 @@ if __name__ == "__main__":
 
     gradebook.enter_grade("Alice", 92)
     gradebook.enter_grade("Bob", 85)
+    gradebook.enter_grade("Arham", 50)
