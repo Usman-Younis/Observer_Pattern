@@ -27,6 +27,11 @@ class ParentPortal(Observer):
     def update(self, student_name, grade):
         print(f"[Parent Portal] {student_name} received a grade of {grade}.")
 
+# New Concrete Observer: Guardian Portal
+class GuardianPortal(Observer):
+    def update(self, student_name, grade):
+        print(f"[Guardian Portal] {student_name}'s guardian has been notified of the grade: {grade}.")
+
 # Concrete Observer: Student Portal
 class StudentPortal(Observer):
     def update(self, student_name, grade):
@@ -42,12 +47,15 @@ if __name__ == "__main__":
     gradebook = GradeBook()
 
     parent = ParentPortal()
+    guardian = GuardianPortal()
     student = StudentPortal()
     dashboard = AnalyticsDashboard()
 
     gradebook.add_observer(parent)
+    gradebook.add_observer(guardian)
     gradebook.add_observer(student)
     gradebook.add_observer(dashboard)
 
     gradebook.enter_grade("Alice", 92)
     gradebook.enter_grade("Bob", 85)
+    gradebook.enter_grade("Arham", 50)
